@@ -38,8 +38,7 @@ const clearData = () => {
     userSexOutput.innerHTML = "";
 }
 
-formBtn.addEventListener('reset', () => {
+formBtn.addEventListener('click', () => {
     clearData();
-    // formBtn.reset();
 });
 
