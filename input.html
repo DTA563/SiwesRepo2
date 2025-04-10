@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>Users Input</title>
+</head>
+<body>
+    <main>
+        <form id="userInput">
+            <h1>User Input Form</h1>
+            <label for="name">Please Input Your Name</label>
+            <input type="text" id="name" required>
+            <label for="age">Please Input Your Age</label>
+            <input type="number" id="age" min="18" placeholder="Must be 18 and above" required>
+            <label for="job">What is your occupation?</label>
+            <input type="text" id="job" required>
+            <label for="sex">What is your gender?</label>
+            <select id="sex" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
+            <div class="btn">
+                <button type="submit" id="submitBtn">Submit</button>
+                <button type="reset" id="resetBtn">Reset</button>
+            </div>
+        </form>
+
+        <div class="line"></div>
+        <div class="line"></div>
+        
+        <div class="userDetails">
+            <h1>User Details</h1>
+            <p id="userName"></p>
+            <p id="userAge"></p>
+            <p id="userJob"></p>
+            <p id="userSex"></p>
+        </div>
+
+    </main>
+
+    <script src="input.js"></script>
+</body>
+</html>
