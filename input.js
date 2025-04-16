@@ -41,4 +41,3 @@ const clearData = () => {
 formBtn.addEventListener('click', () => {
     clearData();
 });
-
