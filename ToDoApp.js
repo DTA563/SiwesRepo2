@@ -9,6 +9,7 @@ const tasksContainer = document.getElementById("tasks-container");
 const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
 const descriptionInput = document.getElementById("description-input");
+const searchInput = document.getElementById('search-input');
 
 const taskData = JSON.parse(localStorage.getItem("data")) || [];
 let currentTask = {};
@@ -58,6 +59,38 @@ const updateTaskContainer = () => {
         }
     );
 };
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase();
+
+  let isfound = false;
+
+  const taskElements = document.querySelectorAll('.task');
+  taskElements.forEach(task => {
+    const title = task.querySelector('p:nth-child(1)').textContent.toLowerCase();
+    const description = task.querySelector('p:nth-child(3)').textContent.toLowerCase();
+
+    if (title.includes(query) || description.includes(query)) {
+      task.style.display = '';
+      isfound = true;
+    } else {
+      task.style.display = 'none';
+    }
+  });
+
+  let noTaskMsg = document.getElementById('no-task-found');
+  if (!isfound) {
+    if (!noTaskMsg) {
+      noTaskMsg = document.createElement('p');
+      noTaskMsg.id = 'no-task-found';
+      noTaskMsg.textContent = 'No Task Found';
+      noTaskMsg.style.textAlign = 'center'
+      tasksContainer.appendChild(noTaskMsg);
+    }
+  } else {
+      noTaskMsg.remove();
+  }
+});
 
 const deleteTask = (buttonEl) => {
     const dataArrIndex = taskData.findIndex(
